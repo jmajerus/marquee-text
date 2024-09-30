@@ -1,0 +1,102 @@
+/* Style for the input wrapper to contain the input and margin indicator */
+#input-wrapper {
+    position: relative;
+    display: inline-block;
+    font-family: 'Courier New', monospace; /* Fixed-width font */
+    margin-bottom: 20px; /* Add some space between input and item list */
+  }
+  
+  /* The input field, styled to be 50 characters long */
+  #new-item-text {
+    width: 50ch; /* Set the width to 50 characters */
+    font-family: 'Courier New', monospace; /* Fixed-width font */
+    padding: 5px;
+    font-size: 16px;
+    letter-spacing: 0.05ch; /* Helps align the text more cleanly */
+    box-sizing: border-box;
+  }
+  
+  /* Red line positioned at the 38th character mark */
+  #margin-indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(38ch); /* Position the line after the 38th character */
+    width: 1px;
+    background-color: red;
+    pointer-events: none; /* Prevent it from interfering with input */
+  }
+  
+  /* Space the button below the input */
+  #submit-item {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the item list to ensure it's visible */
+/* Container for the item list */
+#item-list {
+    margin-top: 20px;
+    padding: 0 10px;
+    width: 100%;  /* Ensure container takes up available width */
+    box-sizing: border-box;
+  }
+  
+  /* Individual items - strict left-aligned layout */
+  .item {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+    justify-content: flex-start;  /* Align everything to the left */
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Make the item take full width of the container */
+    box-sizing: border-box;
+    white-space: nowrap;  /* Prevent wrapping */
+    gap: 10px;  /* Add space between elements */
+  }
+
+  /* Apply alternating colors */
+  .item:nth-child(odd) {
+    background-color: white;  /* White for odd rows */
+  }
+  
+  .item:nth-child(even) {
+    background-color: #d6f5d6;  /* Pastel green for even rows */
+  }
+  
+  /* First text column: fixed to exactly 50 characters */
+  .item span:nth-of-type(2) {
+    width: 50ch;  /* Fix width to 50 characters */
+    white-space: nowrap;  /* No wrapping */
+    overflow: hidden;  /* Hide overflowing text */
+    text-overflow: ellipsis;  /* Show "..." for overflow */
+    margin-right: 10px;  /* Space between text and other elements */
+    flex-shrink: 0;  /* Prevent shrinking */
+  }
+  
+  /* Button group: compact and left-aligned */
+  .item .button-group {
+    display: inline-flex;
+    gap: 10px;  /* Space between buttons */
+  }
+  
+  /* Compact buttons */
+  .item button {
+    padding: 5px 10px;  /* Button padding */
+    white-space: nowrap;  /* Prevent button text from wrapping */
+    text-align: center;
+    width: auto;  /* Let buttons size to content */
+  }
+  
+  /* Vote tally: minimal, left-aligned, narrower */
+  .item .vote-tally {
+    padding-left: 5px;  /* Slight padding on the left */
+    white-space: nowrap;  /* Prevent wrapping */
+    text-align: left;
+    width: auto;  /* Let width adjust based on content */
+    flex-shrink: 0;  /* Prevent shrinking */
+  }
+  

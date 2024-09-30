@@ -1,25 +1,41 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const app = express();
 
+const port = 3000;
+const dataFilePath = path.join(__dirname, 'data.json');
+
+// Middleware to serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware to parse incoming JSON requests
 app.use(express.json());
 
-const dataFilePath = 'data.json'; // This file will store your data
-
-// Endpoint to get current vote data
+// API endpoint to get the votes data
 app.get('/votes', (req, res) => {
-  const data = fs.readFileSync(dataFilePath);
-  res.json(JSON.parse(data));
+  fs.readFile(dataFilePath, 'utf8', (err, data) => {
+    if (err) {
+      res.status(500).send('Error reading data');
+    } else {
+      res.json(JSON.parse(data));
+    }
+  });
 });
 
-// Endpoint to save votes and new items
+// API endpoint to save the votes data
 app.post('/votes', (req, res) => {
   const newData = req.body;
-  fs.writeFileSync(dataFilePath, JSON.stringify(newData, null, 2));
-  res.status(200).send('Votes and items saved');
+  fs.writeFile(dataFilePath, JSON.stringify(newData, null, 2), 'utf8', (err) => {
+    if (err) {
+      res.status(500).send('Error saving data');
+    } else {
+      res.status(200).send('Votes and new items saved');
+    }
+  });
 });
 
-const port = process.env.PORT || 3000;
+// Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });

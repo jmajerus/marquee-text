@@ -1,13 +1,13 @@
 {
-    "name": "voting-app",
+    "name": "marquee-text",
     "version": "1.0.0",
-    "description": "A voting app",
+    "description": "Marquee text creator using HTML, CSS, and JavaScript, allows collaboration/voting",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js",
+        "dev": "nodemon server.js"
     },
     "dependencies": {
-      "express": "^4.17.1"
+        "express": "^4.21.0"
     }
-  }
-  
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+  <h1>Voting App</h1>
+
+  <!-- Wrapper div for the text input with the margin indicator -->
+  <div id="input-wrapper">
+    <input type="text" id="new-item-text" placeholder="Enter new item" maxlength="50" />
+    <!-- Red line for the margin indicator -->
+    <div id="margin-indicator"></div>
+  </div>
+  
+  <button id="submit-item">Submit</button>
+
+  <!-- Item list container -->
+  <div id="item-list"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+

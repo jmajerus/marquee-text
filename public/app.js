@@ -20,7 +20,7 @@ fetch(dataUrl).then(response => response.json()).then(data => {
 function renderItems(data) {
   const container = d3.select("#item-list");
   container.selectAll('*').remove(); // Clear previous items
-  
+
   data.forEach((item, index) => {
     renderItem(item, index, data);
   });
@@ -30,7 +30,11 @@ function renderItems(data) {
 function renderItem(item, index, data) {
   const container = d3.select("#item-list");
 
-  const itemContainer = container.append("div").attr("class", "item");
+  // Create a container for each item
+  const itemContainer = container.append("div").attr("class", "item").attr("id", `item-${index}`);
+
+  // Create the index span
+  itemContainer.append("span").text(`${index + 1}. `);
 
   // Display the text line item
   itemContainer.append("span").text(item.text);
@@ -52,6 +56,11 @@ function renderItem(item, index, data) {
   itemContainer.append("span")
     .attr("id", `downvotes-${index}`)
     .text(` Downvotes: ${item.downvotes}`);
+
+  // Add DELETE button
+  itemContainer.append("button")
+    .text("Delete")
+    .on("click", () => handleDelete(index, data));
 }
 
 // Handle vote clicks
@@ -84,3 +93,15 @@ function saveVotes(data) {
     }
   });
 }
+
+function handleDelete(index, data) {
+  // Remove item from the data array
+  data.splice(index, 1);
+
+  // Re-render the item list to reflect the change
+  renderItems(data);
+
+  // Send updated data to the backend to save the changes
+  saveVotes(data);
+}
+
