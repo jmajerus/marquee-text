@@ -9,11 +9,11 @@
   /* The input field, styled to be 50 characters long */
   #new-item-text {
     width: 50ch; /* Set the width to 50 characters */
-    font-family: 'Courier New', monospace; /* Fixed-width font */
+    font-family: 'League Gothic', sans-serif;
+    font-size: 30px; /* Set font size to 24px */
     padding: 5px;
-    font-size: 16px;
-    letter-spacing: 0.05ch; /* Helps align the text more cleanly */
     box-sizing: border-box;
+    text-transform: uppercase; /* Convert text to uppercase */
   }
   
   /* Red line positioned at the 38th character mark */
@@ -35,28 +35,19 @@
   }
   
   /* Style for the item list to ensure it's visible */
-/* Container for the item list */
-#item-list {
+  /* Container for the item list */
+  #item-list {
     margin-top: 20px;
     padding: 0 10px;
-    width: 100%;  /* Ensure container takes up available width */
+    width: 50%;  /* Ensure container takes up available width */
     box-sizing: border-box;
   }
-  
-  /* Individual items - strict left-aligned layout */
-  .item {
-    display: flex;
-    align-items: center;  /* Align items vertically */
-    justify-content: flex-start;  /* Align everything to the left */
-    padding: 5px 10px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    width: 100%;  /* Make the item take full width of the container */
-    box-sizing: border-box;
-    white-space: nowrap;  /* Prevent wrapping */
-    gap: 10px;  /* Add space between elements */
+
+  .item span {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 24px; /* Set font size to 24px */
   }
+   
 
   /* Apply alternating colors */
   .item:nth-child(odd) {
@@ -67,36 +58,53 @@
     background-color: #d6f5d6;  /* Pastel green for even rows */
   }
   
-  /* First text column: fixed to exactly 50 characters */
-  .item span:nth-of-type(2) {
-    width: 50ch;  /* Fix width to 50 characters */
-    white-space: nowrap;  /* No wrapping */
-    overflow: hidden;  /* Hide overflowing text */
-    text-overflow: ellipsis;  /* Show "..." for overflow */
-    margin-right: 10px;  /* Space between text and other elements */
-    flex-shrink: 0;  /* Prevent shrinking */
+
+  
+  .item {
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center; /* Vertically align content */
+    justify-content: space-between; /* Ensure even spacing between index, text, and button group */
+    white-space: nowrap; /* Prevent text from wrapping */
   }
   
-  /* Button group: compact and left-aligned */
+  .item .index {
+    width: 50px; /* Set a fixed width that can accommodate triple digits */
+    text-align: right; /* Align the index numbers to the right */
+    padding-right: 10px; /* Add some space between the index and the text */
+  }
+  
+  .item .text {
+    width: 300px; /* Fixed width for the text */
+    overflow: hidden; /* Prevent text from overflowing */
+    text-overflow: ellipsis; /* Show ellipsis (...) for long text */
+    flex-shrink: 0; /* Prevent text from shrinking */
+  }
+  
   .item .button-group {
-    display: inline-flex;
-    gap: 10px;  /* Space between buttons */
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Prevent the button group from shrinking */
   }
   
-  /* Compact buttons */
-  .item button {
-    padding: 5px 10px;  /* Button padding */
-    white-space: nowrap;  /* Prevent button text from wrapping */
-    text-align: center;
-    width: auto;  /* Let buttons size to content */
+  .button-group button {
+    width: 100px; /* Fixed width for buttons */
+    margin-right: 10px; /* Consistent space between buttons */
+    flex-shrink: 0; /* Prevent button shrinking */
   }
   
-  /* Vote tally: minimal, left-aligned, narrower */
-  .item .vote-tally {
-    padding-left: 5px;  /* Slight padding on the left */
-    white-space: nowrap;  /* Prevent wrapping */
-    text-align: left;
-    width: auto;  /* Let width adjust based on content */
-    flex-shrink: 0;  /* Prevent shrinking */
+  .button-group .upvote-count,
+  .button-group .downvote-count {
+    width: 50px; /* Fixed width for vote counts */
+    text-align: center; /* Center the number */
+    margin-right: 10px; /* Consistent space between tally and buttons */
   }
+  
+  .button-group .delete-button {
+    width: 100px; /* Fixed width for the delete button */
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+
+
   
