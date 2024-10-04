@@ -11,7 +11,15 @@
 </head>
 
 <body>
-  <h1>Voting App</h1> 
+  <h1>Marquee Maintenance App</h1> 
+  <h3>Edit lists based on topic-filter</h3>
+  <h4>Optional voting to facilitate collaborative work</h4> 
+
+
+  <!-- Combo box for selecting a topic -->
+  <select id="topic-filter">
+    <option value="all">All</option>
+  </select>
 
   <!-- Wrapper div for the text input with the margin indicator -->
   <div id="input-wrapper">
@@ -19,8 +27,14 @@
     <!-- Red line for the margin indicator -->
     <div id="margin-indicator"></div>
   </div>
-  
-  <button id="submit-item">Submit</button>
+  <div id="new-topic-section">
+    <input type="text" id="new-topic-input" placeholder="Add new topic" />
+    <button id="add-topic-button">+</button>
+  </div>  
+  <div id="button-container">
+    <button id="submit-item">Submit</button>
+    <button id="publish-changes">Publish</button>
+  </div>
 
   <!-- Item list container -->
   <div id="item-list"></div>

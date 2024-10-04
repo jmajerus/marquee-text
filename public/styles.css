@@ -1,5 +1,5 @@
 /* Style for the input wrapper to contain the input and margin indicator */
-#input-wrapper {
+  #input-wrapper {
     position: relative;
     display: inline-block;
     font-family: 'Courier New', monospace; /* Fixed-width font */
@@ -27,20 +27,15 @@
     pointer-events: none; /* Prevent it from interfering with input */
   }
   
-  /* Space the button below the input */
-  #submit-item {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  
   /* Style for the item list to ensure it's visible */
   /* Container for the item list */
   #item-list {
     margin-top: 20px;
     padding: 0 10px;
-    width: 50%;  /* Ensure container takes up available width */
+    width: 65%;  /* Ensure container takes up available width */
     box-sizing: border-box;
+    max-height: 600px; /* Set a max height for the list */
+    overflow-y: auto;  /* Enable vertical scrolling */
   }
 
   .item span {
@@ -105,6 +100,47 @@
     width: 100px; /* Fixed width for the delete button */
     flex-shrink: 0; /* Prevent shrinking */
   }
+
+  #button-container { /* Container for upper panel buttons */
+    display: flex;
+    gap: 20px; /* Optional: adds space between the buttons */
+    margin-right: 20px;  /* Adds spacing between buttons */
+  }
+  
+  .topic-header {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    background-color: rgb(253, 224, 126);
+  }  
+
+  .strikethrough {
+    text-decoration: line-through;
+    color: grey;
+  }
+  
+  #new-topic-section {
+    margin-bottom: 20px;
+  }
+  
+  #new-topic-input {
+    width: 200px;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .delete-topic {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 3px 6px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
 
 
   
