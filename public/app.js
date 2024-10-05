@@ -1,4 +1,4 @@
-class VotingApp {
+class MarqueeMaintApp {
   constructor(dataUrl, topicUrl) {
     this.data = {};  
     this.dataUrl = dataUrl;
@@ -486,7 +486,7 @@ class VotingApp {
 };
 
 // Initialize the app with a URL for the data (adjust URL as needed)
-const app = new VotingApp('/data', '/topics');
+const app = new MarqueeMaintApp('/data', '/topics');
 
 // jQuery event listener for adding a new item
 $('#submit-item').on('click', function() {
